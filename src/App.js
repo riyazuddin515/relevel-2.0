@@ -35,7 +35,7 @@ function App() {
           display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
         }}>
         {level1.results.map(each => (
-          <a key={each.uuid}
+          <div key={each.uuid}
             onClick={() => openInNewTab(`https://relevel.com/courses/frontend-development-course-0007/schedule/class-details/${each.uuid}?level=1&module=1`)}
             style={{
               color: 'black', textDecoration: 'none',
@@ -57,7 +57,7 @@ function App() {
               <p><b>{each.title}</b> </p>
               <p>Educator: {each.educators[0]?.name}</p>
             </div>
-          </a>
+          </div>
         ))}
       </div>
 
