@@ -5,6 +5,11 @@ import level1 from './Data/Relevel Level 1.json'
 
 function App() {
 
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
+
   return (
     <Container style={{ marginTop: '20px' }}>
       {/* <FormControl fullWidth>
@@ -31,17 +36,17 @@ function App() {
         }}>
         {level1.results.map(each => (
           <a key={each.uuid}
-            href={`https://relevel.com/courses/frontend-development-course-0007/schedule/class-details/${each.uuid}?level=1&module=1`}
-            rel="noopener noreferrer"
+            onClick={() => openInNewTab(`https://relevel.com/courses/frontend-development-course-0007/schedule/class-details/${each.uuid}?level=1&module=1`)}
             style={{
               color: 'black', textDecoration: 'none',
               backgroundColor: 'white', margin: '10px',
-              padding: '2px 15px', borderRadius: '20px',
-              display: 'flex', gap: '10px', alignItems: 'center'
+              padding: '2px 10px', borderRadius: '20px',
+              display: 'flex', gap: '10px', alignItems: 'center',
+              cursor: 'pointer'
             }}
           >
             <img src={each.educators[0] ? each.educators[0]?.profile_pic_url : 'https://static.thenounproject.com/png/4381137-200.png'} alt=""
-              style={{ width: '124px', height: '124px', borderRadius: '20px', objectFit: 'fill' }}
+              style={{ width: '100px', height: '100px', borderRadius: '20px', objectFit: 'fill' }}
             />
             <div>
               <p>
