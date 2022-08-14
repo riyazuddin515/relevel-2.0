@@ -29,13 +29,13 @@ function App() {
           <MenuItem value={6}>Level 6</MenuItem>
         </Select>
       </FormControl> */}
+      <p className='note'>Note: You must be logged into relevel platform for redirecting to the class page.</p>
       <h1>Level 1</h1>
-      <div className="grid-container"
-        style={{
-          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)',
-        }}>
+      <div className="grid-container">
         {level1.results.map(each => (
-          <div key={each.uuid}
+          <div
+            className='class'
+            key={each.uuid}
             onClick={() => openInNewTab(`https://relevel.com/courses/frontend-development-course-0007/schedule/class-details/${each.uuid}?level=1&module=1`)}
             style={{
               color: 'black', textDecoration: 'none',
@@ -45,8 +45,8 @@ function App() {
               cursor: 'pointer'
             }}
           >
-            <img src={each.educators[0] ? each.educators[0]?.profile_pic_url : 'https://static.thenounproject.com/png/4381137-200.png'} alt=""
-              style={{ width: '100px', height: '100px', borderRadius: '20px', objectFit: 'fill' }}
+            <img className='img' src={each.educators[0] ? each.educators[0]?.profile_pic_url : 'https://static.thenounproject.com/png/4381137-200.png'} alt=""
+            // style={{ width: '100px', height: '100px', borderRadius: '20px', objectFit: 'fill' }}
             />
             <div>
               <p>
