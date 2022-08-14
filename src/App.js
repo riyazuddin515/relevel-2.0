@@ -1,3 +1,4 @@
+import { GitHub, LinkedIn, Warning } from '@mui/icons-material';
 import { Container } from '@mui/material';
 import './App.css';
 
@@ -29,7 +30,19 @@ function App() {
           <MenuItem value={6}>Level 6</MenuItem>
         </Select>
       </FormControl> */}
-      <p className='note'>Note: You must be logged into relevel platform for redirecting to the class page.</p>
+      <div className="header">
+        <p>Note: You must be logged into relevel platform for redirecting to the class page.</p>
+        <div>
+          <GitHub
+            style={{ cursor: 'pointer' }}
+            onClick={() => openInNewTab('https://github.com/riyazuddin515')}
+          />
+          <LinkedIn
+            style={{ cursor: 'pointer', marginLeft: '10px' }}
+            onClick={() => openInNewTab('https://www.linkedin.com/in/mohammed-riyazuddin-8829a41a2/')}
+          />
+        </div>
+      </div>
       <h1>Level 1</h1>
       <div className="grid-container">
         {level1.results.map(each => (
@@ -60,7 +73,14 @@ function App() {
           </div>
         ))}
       </div>
-
+      <div className="footer">
+        <Warning />
+        <p>
+          The data used to display the classes is taken from&nbsp;
+          <u onClick={() => openInNewTab('https://relevel.com/')} style={{ color: 'blue' }}>Relevel</u>.
+          The whole purpose of this site
+          is to provide an effective way of accessing the classes.</p>
+      </div>
     </Container>
   );
 }
